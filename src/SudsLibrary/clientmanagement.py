@@ -23,7 +23,7 @@ from .utils import *
 
 class _ClientManagementKeywords(object):
 
-    def create_soap_client(self, url_or_path, alias=None, autoblend=False, timeout='90 seconds'):
+    def create_soap_client(self, url_or_path, alias=None, autoblend=False, timeout='90 seconds', username=None, password=None):
         """Loads a WSDL from the given URL/path and creates a Suds SOAP client.
 
         Returns the index of this client instance which can be used later to
@@ -46,6 +46,10 @@ class _ClientManagementKeywords(object):
         url = self._get_url(url_or_path)
         autoblend = to_bool(autoblend)
         kwargs = {'autoblend': autoblend}
+        if username:
+            kwargs['username']=username
+        if password:
+            kwargs['password']=password
         imports = self._imports
         if imports:
             self._log_imports()
