@@ -46,7 +46,7 @@ class _ClientManagementKeywords(object):
         url = self._get_url(url_or_path)
         autoblend = to_bool(autoblend)
         kwargs = {'autoblend': autoblend}
-        if username:
+        if username!=None:
             kwargs['username']=username
         if password:
             kwargs['password']=password
